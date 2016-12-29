@@ -10,14 +10,24 @@
 
 @octicons-font-path: '../fonts/octicons';
 
+
 // TODO Should be moved to elemental varibales
-@font-family-sans-serif: 'Avenir Next';
+@font-family-sans-serif: 'Circular Std.....', 'Avenir Next';
 @font-family-monospace: 'Source Code Pro';
+
+@text-color: #4E5E68;
+@light-text-color: lighten(@text-color, 30%);
+@grey: lighten(@text-color, 50%);
+@light-grey: lighten(@grey, 10%);
+
+@lg-container-padding: 30px;
+
+
 
 // Common
 // ------------------------------
 
-@body-bg:                        blue;//#f2f2f2;
+@body-bg:                        #fff;
 
 @line-height-computed:           floor(@font-size-base * @line-height-base); // ~20px
 
@@ -66,21 +76,21 @@
 // Navbars
 // ------------------------------
 
-@primary-navbar-bg:                   @link-color;
-@primary-navbar-color:                white;
+@primary-navbar-bg:                   @light-grey;
+@primary-navbar-color:                @light-text-color;
 @primary-navbar-padding-vertical:     .75em;
 @primary-navbar-padding-horizontal:   1.5em;
 @primary-navbar-hover-bg:             transparent;
-@primary-navbar-hover-color:          white;
-@primary-navbar-active-bg:            darken(@primary-navbar-bg, 6.5%);
-@primary-navbar-active-color:         white;
+@primary-navbar-hover-color:          @text-color;
+@primary-navbar-active-bg:            white;
+@primary-navbar-active-color:         @text-color;
 
-@secondary-navbar-bg:                 darken(@body-bg, 2%);
-@secondary-nav-border-color:          darken(@secondary-navbar-bg, 10%);
-@secondary-navbar-color:              #666;
-@secondary-navbar-hover-color:        darken(@secondary-navbar-color, 20%);
+@secondary-navbar-bg:                 @body-bg;
+@secondary-nav-border-color:          @light-grey;
+@secondary-navbar-color:              @light-text-color;
+@secondary-navbar-hover-color:        @text-color;
 @secondary-navbar-padding-vertical:   .75em;
 @secondary-navbar-padding-horizontal: 1em;
 @secondary-navbar-active-bg:          transparent;
 @secondary-navbar-active-color:       @text-color;
-@secondary-navbar-arrow-size:         8px;
+@secondary-navbar-arrow-size:         6px;

@@ -2,7 +2,8 @@
 // Navigation
 // ==============================
 
-
+// for dev purposes
+@screen-lg: 900px;
 
 
 // Common
@@ -42,17 +43,6 @@
 	}
 }
 
-// fade out the hovered item's siblings
-.app-nav--primary:hover {
-	color: fade(@primary-navbar-color, 66%);
-}
-.app-nav--secondary:hover {
-	color: fade(@secondary-navbar-color, 66%);
-}
-
-
-
-
 // Primary
 // ------------------------------
 
@@ -61,29 +51,49 @@
 	color: @primary-navbar-color;
 	padding-bottom: .5em;
 	padding-top: .5em;
+	@media (min-width: @screen-lg) {
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 250px;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		*[class^="container"] {
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+		.app-nav--left {
+			float: none;
+			flex-grow: 1;
+			> li {
+				float: none;
+				font-size: 18px;
+				a {
+					border-radius: 0;
+					padding: (@lg-container-padding / 2) @lg-container-padding;
+				}
+			}
+		}
+		.app-nav--right {
+			float: none;
+			padding: @lg-container-padding/2;
+			.primary-navbar__link {
+				padding: @lg-container-padding/2;
+			}
+		}
+		*[class^="container"] {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			width: 100%;
+		}
+	}
 }
 
 .primary-navbar__item {
 	position: relative;
-
-	// adds a divider between nav items
-	&::before {
-		.translate(0,-50%);
-		background-color: rgba(255, 255, 255, 0.2);
-		content: " ";
-		left: 0;
-		height: 1em;
-		position: absolute;
-		top: 50%;
-		width: 1px;
-		z-index: 1;
-	}
-
-	// hide the divider where appropriate
-	&:first-child::before,
-	&.right:last-child::before {
-		display: none;
-	}
 }
 
 // anchors and Link component
@@ -102,13 +112,6 @@
 // hide the active item's divider and, using box-shadow, mask the one
 // to its right
 .primary-navbar__item--active {
-	box-shadow: 2px 0 0 @primary-navbar-bg;
-	z-index: 2;
-
-	&::before {
-		display: none;
-	}
-
 	.primary-navbar__link {
 		background-color: @primary-navbar-active-bg;
 		color: @primary-navbar-active-color;
@@ -135,12 +138,19 @@
 	background-color: @secondary-navbar-bg;
 	border-bottom: 1px solid darken(@secondary-navbar-bg, 10%);
 	color: @secondary-navbar-color;
+	@media (min-width: @screen-lg) {
+		display: flex;
+		flex-direction: row;
+		*[class^="container"] {
+			flex-grow: 1;
+		}
+	}
 
 	li > a {
 		color: inherit;
 		padding: @secondary-navbar-padding-vertical @secondary-navbar-padding-horizontal;
 		position: relative;
-
+		font-size: 18px;
 		&:hover {
 			color: @secondary-navbar-hover-color;
 		}
@@ -201,9 +211,10 @@
 	height: @mobile-nav-bar-height;
 }
 .MobileNavigation__bar {
-	background-color: @app-primary;
-	color: white;
+	background-color: @primary-navbar-bg;
+	color: @primary-navbar-color;
 	line-height: @mobile-nav-bar-height;
+	height: @mobile-nav-bar-height;
 	position: fixed;
 	z-index: @mobile-nav-zindex-bar;
 	width: 100%;
