@@ -73,8 +73,8 @@ const classes = StyleSheet.create({
 		boxShadow: '0 -1px 0 rgba(0, 0, 0, 0.1)',
 		color: theme.color.gray40,
 		fontSize: theme.font.size.small,
-		paddingBottom: 30,
-		paddingTop: 40,
+		paddingBottom: 27,
+		paddingTop: 29,
 		textAlign: 'center',
 	},
 	link: {
