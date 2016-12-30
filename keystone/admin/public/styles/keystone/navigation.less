@@ -78,6 +78,18 @@ header {
 				a {
 					border-radius: 0;
 					padding: (@lg-container-padding / 2) @lg-container-padding;
+					span.octicon.octicon-home {
+						display: block;
+						height: 59px;
+						margin: (@lg-container-padding / -2) -@lg-container-padding;
+						background-image: url(/keystone/images/logo.svg);
+						background-repeat: no-repeat;
+						background-size: auto 40%;
+						background-position: @lg-container-padding center;
+						&:before {
+							display: none !important;
+						}
+					}
 				}
 			}
 		}
