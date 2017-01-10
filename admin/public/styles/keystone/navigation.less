@@ -1,0 +1,402 @@
+//
+// Navigation
+// ==============================
+
+// for dev purposes
+@screen-lg: 900px;
+
+// Common
+// ------------------------------
+
+.app-nav {
+	&:extend(.u-clearfix all);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	> li {
+		float: left;
+
+		&.right {
+			float: right;
+		}
+	}
+	> li > a {
+		.transition( opacity .2s ease-in-out );
+		display: block;
+		outline: none;
+		text-decoration: none;
+		.active & {
+			opacity: 1;
+		}
+	}
+}
+.app-nav--left {
+	float: left;
+}
+.app-nav--right {
+	float: right;
+
+	// Alignment Hack
+	// align last nav items to the right of the container
+	// first item alignment declared separately for primary/secondary - see below
+	li:last-child > a {
+		padding-right: 0;
+	}
+}
+
+// Primary
+// ------------------------------
+
+.primary-navbar {
+	background-color: @primary-navbar-bg;
+	color: @primary-navbar-color;
+	padding-bottom: .5em;
+	padding-top: .5em;
+	@media (min-width: @screen-lg) {
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: @sidebar-width;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		*[class^="container"] {
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+		.app-nav--left {
+			float: none;
+			flex-grow: 1;
+			> li {
+				float: none;
+				font-size: 18px;
+				a {
+					border-radius: 0;
+					padding: 10px @lg-container-padding;
+				}
+			}
+		}
+		.app-nav--right {
+			float: none;
+			padding: @lg-container-padding/2;
+			.primary-navbar__link {
+				padding: @lg-container-padding/2;
+			}
+		}
+		*[class^="container"] {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			width: 100%;
+		}
+	}
+}
+
+.primary-navbar__item {
+	position: relative;
+}
+
+// anchors and Link component
+.primary-navbar__link {
+	border-radius: .3em;
+	color: inherit;
+	padding: @primary-navbar-padding-vertical @primary-navbar-padding-horizontal;
+	position: relative;
+	opacity: .5;
+	transition: opacity .2s ease-in-out, background .2s ease-in-out, color .2s ease-in-out, border .2s ease-in-out;
+
+	&:hover {
+		// background-color: @primary-navbar-hover-bg;
+		color: @primary-navbar-hover-color;
+		opacity: 1;
+	}
+}
+
+// hide the active item's divider and, using box-shadow, mask the one
+// to its right
+.primary-navbar__item--active {
+	.primary-navbar__link {
+		background-color: @primary-navbar-active-bg;
+		color: @primary-navbar-active-color;
+		opacity: 1;
+	}
+}
+
+// brand specific styles
+.primary-navbar__brand {
+	box-shadow: none;
+	height: 130px;
+	display: flex;
+	align-items: center;
+
+	.primary-navbar__link {
+		background-color: transparent;
+		padding-left: 0;
+		flex-grow: 1;
+		padding: 0;
+		height: 30px;
+		opacity: 1;
+		.octicon {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			bottom: 0;
+			display: block;
+			margin: 0 -@lg-container-padding;
+			background-image: url(/keystone/images/logo.svg);
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+			background-position: @lg-container-padding center;
+			&:before {
+				display: none !important;
+			}
+		}
+	}
+}
+
+
+
+
+// Secondary
+// ------------------------------
+
+.secondary-navbar {
+	// background-color: @secondary-navbar-bg;
+	// border-bottom: 1px solid darken(@secondary-navbar-bg, 10%);
+	color: @secondary-navbar-color;
+	padding-bottom: 20px; //@lg-container-padding;
+	@media (min-width: @screen-lg) {
+		display: flex;
+		flex-direction: row;
+	  z-index: 1;
+		*[class^="container"] {
+			flex-grow: 1;
+		}
+	}
+
+	li > a {
+		color: inherit;
+		padding: @secondary-navbar-padding-vertical 0;
+		margin-right: @secondary-navbar-padding-horizontal;
+		position: relative;
+		font-size: 20px;
+		opacity: .5;
+		transition: opacity .2s ease-in-out, background .2s ease-in-out, color .2s ease-in-out, border .2s ease-in-out;
+		&:hover {
+			// color: @secondary-navbar-hover-color;
+			opacity: 1;
+		}
+		@media (min-width: @screen-lg) {
+			padding: @lg-container-padding 0 0 0;
+		}
+	}
+	li.active > a {
+		&, &:hover {
+			background-color: @secondary-navbar-active-bg;
+			color: @secondary-navbar-active-color;
+			opacity: 1;
+		}
+	}
+
+	// align first nav items to the left of the container
+	// 1. remove right padding to fix the center alignment of the active arrow
+	// 2. recover the missing right padding using margin
+	li:last-child > a {
+		margin-right: 0;
+	}
+}
+
+
+
+
+// Mobile
+// ------------------------------
+
+.MobileNavigation {}
+
+
+// Common
+
+.MobileNavigation__icon {}
+
+
+// Bar
+
+.MobileNavigation__bar--placeholder {
+	height: @mobile-nav-bar-height;
+}
+.MobileNavigation__bar {
+	background-color: @primary-navbar-bg;
+	color: @primary-navbar-color;
+	line-height: @mobile-nav-bar-height;
+	height: @mobile-nav-bar-height;
+	position: fixed;
+	z-index: @mobile-nav-zindex-bar;
+	width: 100%;
+}
+.MobileNavigation__bar__button {
+	background: none;
+	border: none;
+	display: inline-block;
+	color: white;
+	padding: 0 @mobile-nav-bar-padding-horizontal;
+
+	&:hover,
+	&:focus {
+		color: white;
+		outline: none;
+	}
+	&:active {
+		opacity: .75;
+	}
+}
+.MobileNavigation__bar__button--signout {
+	float: right;
+}
+.MobileNavigation__bar__icon {
+}
+.MobileNavigation__bar__label {
+	font-size: @font-size-lg;
+	// font-weight: 300;
+}
+
+
+// Blockout
+
+.MobileNavigation__blockout {
+	.transition( opacity 160ms ease-out 100ms );
+	background: fade(@body-bg, 60%);
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	opacity: 1;
+	overflow: hidden;
+	position: fixed;
+	top: @mobile-nav-bar-height;
+	width: 100%;
+	z-index: @mobile-nav-zindex-blockout;
+}
+
+
+// Menu
+
+.MobileNavigation__menu {
+	background: @mobile-nav-menu-bg;
+	border-radius: @border-radius-base;
+	bottom: 0;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+	left: 0;
+	margin: @grid-gutter-width;
+	max-width: 375 - (@grid-gutter-width * 2); // arbitrary: iPhone6 portrait
+	overflow: hidden;
+	position: fixed;
+	right: 0;
+	top: @mobile-nav-bar-height;
+	z-index: @mobile-nav-zindex-menu;
+}
+.MobileNavigation__menu-enter {
+	.animation-name( mobileNavMenuEnter );
+	.animation-duration( 260ms );
+	.animation-timing-function( cubic-bezier(0.230, 1.000, 0.320, 1.000) ); // easeOutQuint
+}
+.MobileNavigation__menu-leave {
+	.animation-duration( 200ms );
+	.animation-name( mobileNavMenuLeave );
+}
+
+.MobileNavigation__icon {
+	display: inline-block;
+	min-height: 1px;
+	text-align: center;
+	width: 32px;
+}
+
+
+// Sections
+
+.MobileNavigation__sections {
+	box-shadow: inset @mobile-nav-menu-border-width 0 0 @mobile-nav-menu-border-color;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	-webkit-overflow-scrolling: touch;
+	// padding: @mobile-nav-padding-vertical 0;
+}
+.MobileNavigation__section {
+	padding: @mobile-nav-menu-padding-vertical @mobile-nav-menu-padding-horizontal  @mobile-nav-menu-padding-vertical 0;
+
+	&.is-active {
+		background-color: @mobile-nav-menu-section-selected-bg;
+		box-shadow: inset @mobile-nav-menu-section-selected-border-width 0 0 @mobile-nav-menu-section-selected-border-color;
+	}
+}
+
+.MobileNavigation__section-item {
+	color: @mobile-nav-menu-section-item-color;
+	display: block;
+	font-size: @font-size-lg;
+	padding: @mobile-nav-menu-padding-vertical @mobile-nav-menu-padding-horizontal;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: @mobile-nav-menu-section-item-color;
+		outline: none;
+		text-decoration: none;
+	}
+}
+
+
+// Lists
+
+.MobileNavigation__lists {
+	// padding: 10px 0;
+}
+
+.MobileNavigation__list-item {
+	.border-right-radius(@border-radius-base);
+	color: @mobile-nav-menu-list-item-color;
+	display: block;
+	padding: @mobile-nav-menu-padding-vertical @mobile-nav-menu-padding-horizontal;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: @mobile-nav-menu-list-item-color;
+		outline: none;
+		text-decoration: none;
+	}
+
+	&.is-active {
+		background-color: @mobile-nav-menu-list-item-selected-bg;
+		color: @mobile-nav-menu-list-item-selected-color;
+	}
+}
+
+
+// slide in
+
+@-webkit-keyframes mobileNavMenuEnter {
+	from { opacity: 0; -webkit-transform: translate3d(-8%, 0, 0); }
+	to   { opacity: 1; -webkit-transform: none; }
+}
+@keyframes mobileNavMenuEnter {
+	from { opacity: 0; transform: translate3d(-8%, 0, 0); }
+	to   { opacity: 1; transform: none; }
+}
+
+
+
+// slide out
+
+@-webkit-keyframes mobileNavMenuLeave {
+	from { opacity: 1; -webkit-transform: none; }
+	to   { opacity: 0; -webkit-transform: translate3d(-4%, 0, 0); }
+}
+@keyframes mobileNavMenuLeave {
+	from { opacity: 1; transform: none; }
+	to   { opacity: 0; transform: translate3d(-4%, 0, 0); }
+}

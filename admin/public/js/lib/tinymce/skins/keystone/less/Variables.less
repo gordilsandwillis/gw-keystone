@@ -1,0 +1,157 @@
+// Variables
+// Syntax: <control>-(<sub control>)-<bg|border|text>-(<state>)-(<extra>);
+// Example: @btn-primary-bg-hover-hlight;
+
+// Default font
+@font-family:                    'Avenir Next';
+@font-size:                      14px;
+@line-height:                    20px;
+@has-gradients:                  true;
+@has-radius:                     true;
+@has-boxshadow:                  true;
+
+@text-color: #4E5E68;
+@light-text-color: lighten(@text-color, 35%);
+@grey: tint(@text-color, 90%);
+@light-grey: tint(@text-color, 95%);
+@line-grey: tint(@text-color, 85%);
+@body-bg: #fff;
+@app-primary: #26E38A;
+
+// Text colors
+@text:                           #4E5E68;
+@text-inverse:                   white;
+@text-disabled:                  lighten(@text, 35%);
+@text-shadow:                    none; // 0 1px 1px hsla(hue(@text-inverse), saturation(@text-inverse), lightness(@text-inverse), 0.75);
+@light-grey:	                   lighten(@text, 60%);
+
+// Button
+@btn-text:                       @text;
+@btn-text-shadow:                transparent;
+@btn-border-top:                 @light-grey;
+@btn-border-right:               @light-grey;
+@btn-border-bottom:              @light-grey;
+@btn-border-left:                @light-grey;
+@btn-split-border:               @light-grey;
+@btn-caret-border:               @btn-text;
+@btn-text-disabled:              @text-disabled;
+@btn-box-shadow-active:          none;
+@btn-box-disabled-opacity:       0.4;
+@btn-bg:                         @grey;
+@btn-bg-hlight:                  lighten(@text, 50%);
+@btn-bg-hover:                   lighten(@text, 50%);
+@btn-bg-hlight-hover:            lighten(@text, 50%);
+
+@btn-primary-text:               @text;
+@btn-primary-text-shadow:        transparent;
+@btn-primary-bg:                 #fff;
+@btn-primary-bg-hlight:          #f1f8fb;
+@btn-primary-bg-hover:           #fff;
+@btn-primary-bg-hover-hlight:    #d9eaf8;
+@btn-primary-bg-active:          #d7e9f7;
+@btn-primary-border-top:         #86ccef;
+@btn-primary-border-right:       #86ccef;
+@btn-primary-border-bottom:      #86ccef;
+@btn-primary-border-left:        #86ccef;
+@btn-primary-box-shadow-active:  inset 0 2px 4px #93b3cc;
+
+// Menu
+@menuitem-text:                  @text;
+@menu-bg:                        @light-grey;
+@menu-border:                    darken(@light-grey, 10%);
+@menubar-border:                 darken(@light-grey, 10%);
+@menuitem-text-inverse:          @text-inverse;
+@menubar-bg-active:              darken(@light-grey, 10%);
+@menuitem-bg-hover:              #0081C2;
+@menuitem-bg-selected:           #08C;
+@menuitem-bg-selected-hlight:    #0077B3;
+@menuitem-bg-disabled:           #CCC;
+@menuitem-caret:                 @menuitem-text;
+@menuitem-caret-selected:        @menuitem-text-inverse;
+@menuitem-separator-top:         #CBCBCB;
+@menuitem-separator-bottom:      @menu-bg;
+@menuitem-bg-active:             #C8DEF4;
+@menuitem-text-active:           @text;
+@menuitem-preview-border-active: #aaa;
+
+// Panel
+@panel-border:                   @line-grey;
+@panel-bg:                       @body-bg;
+@panel-bg-hlight:                lighten(@text, 50%);
+
+// Tabs
+@tab-border:                     #c5c5c5;
+@tab-bg:                         #e3e3e3;
+@tab-bg-hover:                   #FDFDFD;
+@tab-bg-active:                  #FDFDFD;
+
+// Tooltip
+@tooltip-bg:                     @text;
+@tooltip-text:                   white;
+@tooltip-font-size:              12px;
+
+// Window
+@window-border:                  transparent;
+@window-head-border:             @grey;
+@window-head-close:              #da8888; //mix(@text, @window-bg, 60%);
+@window-head-close-hover:        #c64545; //mix(@text, @window-bg, 40%);
+@window-foot-border:             @grey;
+@window-foot-bg:                 @window-bg;
+@window-fullscreen-bg:           #FFF;
+@window-modalblock-bg:           @text-color;
+@window-modalblock-opacity:      .15;
+@window-box-shadow:              none;
+@window-bg:                      @body-bg;
+@window-title-font-size:         18px;
+
+// Popover
+@popover-bg:                     @window-bg;
+@popover-arrow-width:            10px;
+@popover-arrow:                  @window-bg;
+@popover-arrow-outer-width:      @popover-arrow-width + 1;
+@popover-arrow-outer:            rgba(0, 0, 0, 0.25);
+
+// Floatpanel
+@floatpanel-box-shadow:          0 5px 10px rgba(0, 0, 0, .2);
+
+// Checkbox
+@checkbox-bg:                    @btn-bg;
+@checkbox-bg-hlight:             @btn-bg-hlight;
+@checkbox-box-shadow:            inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05);
+@checkbox-border:                #c5c5c5;
+@checkbox-border-focus:          rgba(82, 168, 236, .8);
+
+// Path
+@path-text:                      #666;
+@path-font:                      'Roboto Mono', 'Source Code Pro', monospace;
+@path-font-size:                 12px;
+@path-border:                    #eee;
+@path-text-hover:                #666;
+@path-bg-hover:                  #f9f9f9;
+@path-border-hover:              @light-grey;
+@path-text-focus:                #666;
+@path-bg-focus:                  #eee;
+@path-border-focus:              #ccc;
+
+// Textbox
+@textbox-text-placeholder:       lighten(@text, 35%);
+@textbox-box-shadow:             none;
+@textbox-bg:                     transparent;
+@textbox-border:                 @line-grey;
+@textbox-border-hover:           tint(@text, 70%);
+@textbox-border-focus:           @app-primary;
+
+// Throbber
+@throbber-bg:                    #fff url('img/loader.gif') no-repeat center center;
+
+// Combobox
+@combobox-border:                @textbox-border;
+
+// Grid
+@grid-bg-active:                 @menuitem-bg-active;
+@grid-border-active:             #a1a1a1;
+@grid-border:                    #d6d6d6;
+
+// Misc
+@colorbtn-backcolor-bg:          #BBB;
+@iframe-border:                  @panel-border;

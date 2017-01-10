@@ -1,0 +1,162 @@
+/*!
+ * Keystone v1.0
+ *
+ * Copyright 2016 Jed Watson
+ * Licensed under The MIT License
+ * http://opensource.org/licenses/MIT
+ */
+
+
+
+
+
+// Layout
+// ------------------------------
+
+// Deviate from Elemental to get the most out of the viewport
+
+@media (max-width: @screen-xs-max) {
+	.Modal-dialog {
+		padding-top: @mobile-nav-bar-height + (@grid-gutter-width / 2);
+	}
+}
+
+#react-root {
+	@media (min-width: @screen-lg) {
+		> *[class^="wrapper"] {
+			padding-left: @sidebar-width;
+		}
+	}
+	*[class^="container"] {
+		@media (min-width: @screen-lg) {
+			padding-left: @lg-container-padding !important;
+			padding-right: @lg-container-padding !important;
+		}
+	}
+	.primary-navbar {
+		*[class^="container"] {
+			@media (min-width: @screen-lg) {
+				padding-left: 0 !important;//@lg-container-padding !important;
+				padding-right: 0 !important;//@lg-container-padding !important;
+			}
+		}
+	}
+}
+
+// Typography
+// ------------------------------
+
+.code {
+	font-family: @font-family-monospace;
+}
+
+
+
+
+// Overrides
+// ------------------------------
+
+// bring the react-select control's height into line with elemental fields
+
+.Select-control {
+	line-height: 1;
+}
+
+.Select .Select-menu-outer {
+	z-index: 101;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill,
+input[type="email"]:-webkit-autofill,
+input[type="email"]:-webkit-autofill:hover, 
+input[type="email"]:-webkit-autofill:focus,
+input[type="email"]:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: @text-color;
+  -webkit-box-shadow: 0 0 0px 1000px @body-bg inset !important;
+}
+
+*[class^="alert"] {
+	// transform: translate3d(0, ~"calc(100% + 20px)", 0);
+	// animation: alert-transition 2s ease-in-out forwards;
+}
+
+// Force Styles
+.Table {
+	th {
+		border-bottom: 1px solid @line-grey;
+		padding: .95em;
+	}
+	tbody {
+		tr {
+			transition: background .2s ease-in-out;
+			&:hover {
+				background: white;
+			}
+		}
+	}
+	td {
+		border-top: 1px solid @line-grey;
+		padding: .95em;
+    vertical-align: top;
+    a {
+			margin: -.95em !important;
+			padding: .95em !important;
+			vertical-align: top;
+			position: relative;
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 2em;
+				left: .95em;
+				right: .95em;
+				height: 1px;
+				transition: background .2s ease-in-out;
+			}
+			&:hover {
+				text-decoration: none;
+				&:after {
+					background: @light-text-color;
+				}
+			}
+		}
+	}
+}
+
+.EditForm-container {
+	*[class^="FormField"] {
+		border-top: 1px solid @grey;
+		padding-top: 1em;
+		margin-top: 40px;
+		label {
+			opacity: 1;
+		}
+		*[class^="FormField__inner"] {
+			padding-top: 0;
+			margin-top: 0;
+			border: none;
+		}
+	}
+	.EditForm__name-field {
+		*[class^="FormField"] {
+			padding-top: 0;
+			border: none;
+		}
+		*[class^="FormInput"] {
+	    padding: .65em .75em !important;
+	    height: auto;
+	    line-height: 1em;
+	    opacity: 1 !important;
+		}
+	}
+}

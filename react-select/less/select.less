@@ -1,0 +1,95 @@
+/**
+ * React Select
+ * ============
+ * Created by Jed Watson and Joss Mackison for KeystoneJS, http://www.keystonejs.com/
+ * https://twitter.com/jedwatson https://twitter.com/jossmackison https://twitter.com/keystonejs
+ * MIT License: https://github.com/JedWatson/react-select
+*/
+
+// Variables
+// ------------------------------
+
+@text-color: #4E5E68;
+@light-text-color: lighten(@text-color, 35%);
+@grey: tint(@text-color, 90%);
+@light-grey: tint(@text-color, 95%);
+@line-grey: @light-grey;
+
+// common
+@select-primary-color:             #26E38A;
+
+// control options
+@select-input-bg:                  @grey;
+@select-input-bg-disabled:         @grey;
+@select-input-border-color:        @grey;
+@select-input-border-radius:       3px;
+@select-input-border-focus:        @select-primary-color;
+@select-input-border-width:        1px;
+@select-input-height:              40px;
+@select-input-internal-height:     (@select-input-height - (@select-input-border-width * 2));
+@select-input-placeholder:         @light-text-color;
+@select-text-color:                @text-color;
+@select-link-hover-color:          @select-input-border-focus;
+
+@select-padding-vertical:          10px;
+@select-padding-horizontal:        12px;
+
+// menu options
+@select-menu-zindex:               1;
+@select-menu-max-height:           200px;
+
+@select-option-color:              @select-text-color;
+@select-option-bg:                 transparent;
+@select-option-focused-color:      @select-text-color;
+@select-option-focused-bg:         @light-grey;
+@select-option-focused-bg-fb:      @select-primary-color;  // Fallback color for IE 8
+@select-option-selected-color:     #fff;
+@select-option-selected-bg:        @select-primary-color;
+@select-option-selected-bg-fb:     @select-primary-color;  // Fallback color for IE 8
+@select-option-disabled-color:     lighten(@select-text-color, 70%);
+
+@select-noresults-color:           lighten(@select-text-color, 40%);
+
+// clear "x" button
+@select-clear-size:                floor((@select-input-height / 2));
+@select-clear-color:               @light-text-color;
+@select-clear-hover-color:         @text-color; // red
+@select-clear-width:               (@select-input-internal-height / 2);
+
+// arrow indicator
+@select-arrow-color:               @light-text-color;
+@select-arrow-color-hover:         @text-color;
+@select-arrow-width:               5px;
+
+// loading indicator
+@select-loading-size:              16px;
+@select-loading-color:             @select-text-color;
+@select-loading-color-bg:          @select-input-border-color;
+
+// multi-select item
+@select-item-font-size:            14px;
+
+@select-item-bg:                   @select-primary-color;
+@select-item-bg-fb:                @select-primary-color;  // Fallback color for IE 8
+@select-item-color:                #fff;
+@select-item-border-color:         @select-primary-color;
+@select-item-border-color-fb:      @select-primary-color;  // Fallback color for IE 8
+@select-item-hover-color:          @select-item-color;
+@select-item-hover-bg:             @select-item-bg;
+@select-item-hover-bg-fb:          @select-item-bg;  // Fallback color for IE 8
+@select-item-disabled-color:       fade(@light-text-color, 70%);
+@select-item-disabled-bg:          transparent;
+@select-item-disabled-border-color: transparetn;
+
+@select-item-border-radius:        3px;
+@select-item-gutter:               5px;
+
+@select-item-padding-horizontal:   5px;
+@select-item-padding-vertical:     2px;
+
+// imports
+@import "control.less";
+@import "menu.less";
+@import "mixins.less";
+@import "multi.less";
+@import "spinner.less";

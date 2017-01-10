@@ -1,0 +1,27 @@
+// AbsoluteLayout
+
+.mce-abs-layout {
+	position: relative;
+}
+
+body .mce-abs-layout-item, .mce-abs-end {
+	// position: absolute;
+}
+
+.mce-container.mce-form.mce-abs-layout-item.mce-first.mce-last {
+	height: auto !important;
+}
+
+.mce-abs-end {
+	width: 0px; 
+	height: 0px;
+}
+
+.mce-container-body.mce-abs-layout {
+	height: auto !important;
+	overflow: hidden;
+	.mce-primary,
+	.mce-btn {
+		position: static !important;
+	}
+}
